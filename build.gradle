@@ -18,6 +18,7 @@ dependencies {
     // FlakeId
 
     runtimeOnly 'com.h2database:h2:2.3.232'
+    runtimeOnly 'com.mysql:mysql-connector-j:8.3.0'
     implementation 'org.apache.poi:poi-ooxml:5.3.0'
 
     testImplementation platform('org.junit:junit-bom:5.9.1')

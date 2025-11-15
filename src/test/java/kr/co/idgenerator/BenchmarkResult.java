@@ -1,16 +1,15 @@
 package kr.co.idgenerator;
 
 public class BenchmarkResult {
-    private String generatorName;
-    private int sampleSize;
+    private final String generatorName;
+    private final int sampleSize;
     private int byteSize;
     private long generationTime;
-    private boolean sortable;
     private double collisionRate;
-    private long dbJoinTime;
+    private long dbInsertTime;
     private String exampleId;
 
-    BenchmarkResult(String generatorName, int sampleSize) {
+    BenchmarkResult(final String generatorName, final int sampleSize) {
         this.generatorName = generatorName;
         this.sampleSize = sampleSize;
     }
@@ -27,7 +26,7 @@ public class BenchmarkResult {
         return byteSize;
     }
 
-    public void setByteSize(int byteSize) {
+    public void setByteSize(final int byteSize) {
         this.byteSize = byteSize;
     }
 
@@ -36,39 +35,31 @@ public class BenchmarkResult {
         return generationTime;
     }
 
-    public void setGenerationTime(long generationTime) {
+    public void setGenerationTime(final long generationTime) {
         this.generationTime = generationTime;
-    }
-
-    public boolean isSortable() {
-        return sortable;
-    }
-
-    public void setSortable(boolean sortable) {
-        this.sortable = sortable;
     }
 
     public double getCollisionRate() {
         return collisionRate;
     }
 
-    public void setCollisionRate(double collisionRate) {
+    public void setCollisionRate(final double collisionRate) {
         this.collisionRate = collisionRate;
     }
 
-    public long getDbJoinTime() {
-        return dbJoinTime;
+    public long getDbInsertTime() {
+        return dbInsertTime;
     }
 
-    public void setDbJoinTime(long dbJoinTime) {
-        this.dbJoinTime = dbJoinTime;
+    public void setDbInsertTime(final long dbInsertTime) {
+        this.dbInsertTime = dbInsertTime;
     }
 
     public String getExampleId() {
         return exampleId;
     }
 
-    public void setExampleId(String exampleId) {
+    public void setExampleId(final String exampleId) {
         this.exampleId = exampleId;
     }
 }

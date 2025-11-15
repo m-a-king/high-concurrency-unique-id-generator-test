@@ -20,11 +20,11 @@ public class ResultWriter {
 
         // Create charts
         createGroupedChart(workbook, sheet, "Generation Time (ms)", 2);
-        createGroupedChart(workbook, sheet, "Collision Rate", 4);
-        createGroupedChart(workbook, sheet, "DB Join Time (ms)", 5);
+        createGroupedChart(workbook, sheet, "Collision Rate", 3);
+        createGroupedChart(workbook, sheet, "DB Insert Time (ms)", 4);
 
         // Auto-size columns
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 7; i++) {
             sheet.autoSizeColumn(i);
         }
 
@@ -40,11 +40,10 @@ public class ResultWriter {
         headerRow.createCell(0).setCellValue("Generator Name");
         headerRow.createCell(1).setCellValue("Sample Size");
         headerRow.createCell(2).setCellValue("Generation Time (ms)");
-        headerRow.createCell(3).setCellValue("Sortable");
-        headerRow.createCell(4).setCellValue("Collision Rate");
-        headerRow.createCell(5).setCellValue("DB Join Time (ms)");
-        headerRow.createCell(6).setCellValue("Byte Size");
-        headerRow.createCell(7).setCellValue("Example ID");
+        headerRow.createCell(3).setCellValue("Collision Rate");
+        headerRow.createCell(4).setCellValue("DB Insert Time (ms)");
+        headerRow.createCell(5).setCellValue("Byte Size");
+        headerRow.createCell(6).setCellValue("Example ID");
 
         int rowNum = 1;
         for (Map.Entry<String, List<BenchmarkResult>> entry : results.entrySet()) {
@@ -53,11 +52,10 @@ public class ResultWriter {
                 row.createCell(0).setCellValue(result.getGeneratorName());
                 row.createCell(1).setCellValue(result.getSampleSize());
                 row.createCell(2).setCellValue(result.getGenerationTime());
-                row.createCell(3).setCellValue(result.isSortable());
-                row.createCell(4).setCellValue(result.getCollisionRate());
-                row.createCell(5).setCellValue(result.getDbJoinTime());
-                row.createCell(6).setCellValue(result.getByteSize());
-                row.createCell(7).setCellValue(result.getExampleId());
+                row.createCell(3).setCellValue(result.getCollisionRate());
+                row.createCell(4).setCellValue(result.getDbInsertTime());
+                row.createCell(5).setCellValue(result.getByteSize());
+                row.createCell(6).setCellValue(result.getExampleId());
             }
         }
         System.out.println("Data written successfully.");
